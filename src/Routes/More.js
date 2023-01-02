@@ -32,7 +32,7 @@ const More = () => {
         <>
           <div className="MoreURL">
             <h4> URL </h4>
-            <h6> https://zerx-xx.github.io/ask-404/home/{currentUser.displayName}/{currentUser.uid} </h6>
+            <h6> https://wxxd-fxrest.github.io/wood-forest-ask/home/{currentUser.displayName}/{currentUser.uid} </h6>
           </div>
           <button className='MoreLogOutBtn'
                 onClick={onClickSignOut}> Log Out 
