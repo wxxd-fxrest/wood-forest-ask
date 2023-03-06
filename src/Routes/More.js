@@ -10,13 +10,13 @@ const More = () => {
 
   const onSubmit = (event) => {
     event.preventDefault() ;
-  }
+  } ;
 
   const onClickSignOut = () => {
     authService.signOut() ; 
     navigate("/auth")
     console.log("log out")
-  }
+  } ; 
 
   return (
     <div className="More">
