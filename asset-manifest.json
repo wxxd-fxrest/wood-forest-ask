@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/wood-forest-ask/static/css/main.595220a7.css",
+    "main.js": "/wood-forest-ask/static/js/main.9f99b918.js",
+    "index.html": "/wood-forest-ask/index.html",
+    "main.595220a7.css.map": "/wood-forest-ask/static/css/main.595220a7.css.map",
+    "main.9f99b918.js.map": "/wood-forest-ask/static/js/main.9f99b918.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.595220a7.css",
+    "static/js/main.9f99b918.js"
+  ]
+}
