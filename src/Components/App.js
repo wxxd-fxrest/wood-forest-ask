@@ -20,7 +20,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <BrowserRouter basename="-wood-forest-ask">
+      <BrowserRouter basename="wood-forest-ask">
         <Routes>
             <Route>
             <Route index element={
