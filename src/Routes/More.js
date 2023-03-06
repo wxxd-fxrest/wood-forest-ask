@@ -12,12 +12,6 @@ const More = () => {
     event.preventDefault() ;
   }
 
-  const onClickLogin = (event) => {
-  }
-
-  const onClickSignup = (event) => {
-  }
-
   const onClickSignOut = () => {
     authService.signOut() ; 
     navigate("/auth")
@@ -39,14 +33,12 @@ const More = () => {
         </>
           : <>
           <Link to="/login">
-            <button className='MoreLogBtn' 
-                    onClick={onClickLogin}> 
+            <button className='MoreLogBtn'> 
                     Log in 
             </button>
           </Link>
           <Link to="/auth">
-          <button className='MoreSignBtn' 
-                  onClick={onClickSignup}>
+          <button className='MoreSignBtn'>
                   Sign up 
           </button>
           </Link>
