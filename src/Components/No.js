@@ -74,7 +74,7 @@ const No = ({ask}) => {
         } else {
             alert("삭제 할 게시글을 다시 한 번 클릭해주세요.")
         }
-    }
+    } ; 
 
     const Delete = () => {
         let result = window.confirm("Ask를 삭제하시겠습니까?") ; 
@@ -87,7 +87,7 @@ const No = ({ask}) => {
                console.error("Error removing document: ", error) ;
             })
         }
-    }
+    } ; 
 
     const onClearAttachmentClick = () => setAttachment(null) ; 
 
