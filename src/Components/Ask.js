@@ -1,71 +1,10 @@
-import { v4 as uuidv4 } from 'uuid';
 import { useContext, useState } from "react";
 import { AuthContext } from "../Context/AuthContext";
-import { dbService, storageService } from "../firebase";
-import { arrayUnion } from "firebase/firestore";
+import { dbService } from "../firebase";
 
 const Ask = ({ask}) => {
-    const [attachment, setAttachment] = useState("") ; 
     const {currentUser} = useContext(AuthContext) ; 
-    const [sendAsk, setSendAsk] = useState("") ; 
     const [askID, setAskID] = useState("") ; 
-    const uuidv4ID = uuidv4()
-
-    const onSubmit = async (event) => {
-    event.preventDefault() ; 
-    
-    let attachmentUrl = "" ; 
-    if(attachment !== "") {
-        const attachmentRef = storageService
-                            .ref()
-                            .child(`${currentUser.uid}/${uuidv4()}`) ; 
-        const response = await attachmentRef.putString(attachment, "data_url") ;
-        attachmentUrl = await response.ref.getDownloadURL() ; 
-    } ;
-
-    setSendAsk("") ; 
-    setAttachment("") ; 
-    const shareUp = dbService.collection("Chat").doc(currentUser.uid)
-                             .collection("Message").doc(askID)
-                            //  .collection("MESSAGE_UUID").doc(uuidv4ID)
-                            //  .collection("MESSAGE_UUID").doc("ask")
-        console.log("전송")
-            return shareUp.update({
-            messages : arrayUnion({
-                senderId: currentUser.uid,
-                text: sendAsk, 
-                UUID: uuidv4ID, 
-                // date: Timestamp.now(),
-                date: Date.now(), 
-                attachmentUrl,
-            })
-        })
-    } ; 
-
-    const onChange = (event) => {
-        const {target: {value}} = event ; 
-        setSendAsk(value) ; 
-    } ;
-
-    const onFileChange = (event) => {
-        const {target: {files}} = event ; 
-        const theFile = files[0] ; 
-        const reader = new FileReader() ; 
-        reader.onloadend = (finishedEvent) => {
-            const {currentTarget: {result}} = finishedEvent ; 
-            setAttachment(result) ; 
-        } ;
-        if (Boolean(theFile)) {
-        reader.readAsDataURL(theFile) ; 
-        }
-    } ; 
-
-    const onClick = (event) => {
-        const {target : {value}} = event ; 
-            event.preventDefault() ;
-            setAskID(value)
-            console.log(askID)
-    } ;
 
     const onClickDelete = (event) => {
         const {target : {value}} = event ; 
@@ -94,9 +33,6 @@ const Ask = ({ask}) => {
     const ii = () => {
         let arr = [] ;
         for(let i = 0; i < ask.length; i++) {
-            // console.log(ask[i])
-            // console.log(ask[i].messages[0].text)
-            // console.log(ask[i].messages[1].text)
             arr.push (
                 <div  key={i.id} className="Ask">
                     {ask[i] &&
@@ -129,7 +65,6 @@ const Ask = ({ask}) => {
         return arr; 
     }
 
-    // console.log(ask)
     return (
         <div className="AskScroll"> 
             {ii()}

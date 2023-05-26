@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../Context/AuthContext";
-import Attach from "/Users/drizzle/Desktop/프로젝트/Wood-Forest/wood-forest-ask/src/img/attach.png" ; 
-import Img from "/Users/drizzle/Desktop/프로젝트/Wood-Forest/wood-forest-ask/src/img/attach.png" ;  
+import Attach from "../img/attach.png" ; 
+import Img from "../img/attach.png" ;  
 import { v4 as uuidv4 } from 'uuid';
 import { dbService, storageService } from "../firebase";
 import { arrayUnion, Timestamp } from "firebase/firestore";

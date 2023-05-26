@@ -1,8 +1,5 @@
-import { signOut } from "firebase/auth";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
-import { authService } from "../firebase";
-import More from "../Routes/More";
 
 const Header = () => {
   const {currentUser} = useContext(AuthContext) ; 

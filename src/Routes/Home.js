@@ -2,7 +2,6 @@ import { useState } from "react";
 import AskNo from "../Components/AskNo";
 import Asks from "../Components/Asks";
 import Header from "../Components/Header";
-import Input from "../Components/Input";
 import More from "./More";
 
 const Home = () => {
@@ -19,7 +18,6 @@ const Home = () => {
                 <Header />
                 <Asks />
                 <AskNo />
-                {/* <Input /> */}
                 <button className='HomeMore' onClick={onClick}> More </button>
                 {visible ? null : <More />}
             </div>

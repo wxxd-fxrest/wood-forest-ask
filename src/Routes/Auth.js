@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { authService, dbService, storageService } from "../firebase";
-import Img from "/Users/drizzle/Desktop/프로젝트/Wood-Forest/wood-forest-ask/src/img/attach.png" ; 
+import Img from "../img/attach.png" ; 
 import { v4 as uuidv4 } from 'uuid';
 import { updateProfile } from "firebase/auth";
 import { Timestamp } from "firebase/firestore";

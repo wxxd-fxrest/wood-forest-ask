@@ -1,4 +1,4 @@
-import Attach from "/Users/drizzle/Desktop/프로젝트/Wood-Forest/wood-forest-ask/src/img/attach.png" ; 
+import Attach from "../img/attach.png" ; 
 import { v4 as uuidv4 } from 'uuid';
 import { useContext, useState } from "react";
 import { AuthContext } from "../Context/AuthContext";
@@ -28,15 +28,12 @@ const No = ({ask}) => {
     setAttachment("") ; 
     const shareUp = dbService.collection("Chat").doc(currentUser.uid)
                              .collection("Message").doc(askID)
-                            //  .collection("MESSAGE_UUID").doc(uuidv4ID)
-                            //  .collection("MESSAGE_UUID").doc("ask")
         console.log("전송")
             return shareUp.update({
             messages : arrayUnion({
                 senderId: currentUser.uid,
                 text: sendAsk, 
                 UUID: uuidv4ID, 
-                // date: Timestamp.now(),
                 date: Date.now(), 
                 attachmentUrl,
             })
@@ -97,9 +94,6 @@ const No = ({ask}) => {
     const ii = () => {
         let arr = [] ;
         for(let i = 0; i < ask.length; i++) {
-            // console.log(ask[i])
-            // console.log(ask[i].messages[0].text)
-            // console.log(ask[i].messages[1].text)
             arr.push (
                 <div  key={i.id} className="No">
                     {ask[i] ? <>
@@ -156,7 +150,6 @@ const No = ({ask}) => {
         return arr; 
     }
 
-    // console.log(ask)
     return (
         <div className="NoReturn"> 
             {ii()}

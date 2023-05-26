@@ -17,10 +17,8 @@ const AskNo = () => {
             let askArray = snapshot.docs.map(doc => ({
                 ...doc.data(),
             })) ; 
-            // console.log(askArray)
             setAsk(askArray) ; 
         })
-        // console.log(ask)
     } ; 
 
 

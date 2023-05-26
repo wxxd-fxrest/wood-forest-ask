@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
-import Attach from "/Users/drizzle/Desktop/프로젝트/Wood-Forest/wood-forest-ask/src/img/attach.png" ; 
+import Attach from "../img/attach.png" ; 
 import { v4 as uuidv4 } from 'uuid';
 import { dbService, storageService } from "../firebase";
 import { arrayUnion } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 
 const ShareInput = () => {
-    const [err, setErr] = useState(false) ; 
     const [user, setUser] = useState("");
     const { displayName } = useParams();
     const { uid } = useParams();
@@ -16,12 +15,9 @@ const ShareInput = () => {
 
     useEffect(() => {
         dbService.collection("Users").where("displayName", "==", displayName ).where("uid", "==", uid )
-        // dbService.collection("Users").where("uid", "==", uid )
         .get()
         .then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
-            //   console.log(doc.data())
-            //   console.log(doc.data().uid)
               setUser(doc.data());
             });
         })
